@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BrainBloom — онлайн-школа математики</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF1DC;--panel:#F8FAEC;--ink:#2A3311;--muted:#596540;--olive:#5F6F1F;--leaf:#C8D68A;--line:#CBD3A6;--btn:#4A5A16;--btn-text:#F8FAEC;--deep:#3B4712;--deep-text:#F1F4DC;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181C0C;--panel:#20260F;--ink:#E9EED2;--muted:#B4BE94;--olive:#B9CC63;--leaf:#6C7E26;--line:#39421D;--btn:#C8D68A;--btn-text:#1B2109;--deep:#2A3312;--deep-text:#EEF2D6}}
+:root[data-theme="dark"]{--bg:#181C0C;--panel:#20260F;--ink:#E9EED2;--muted:#B4BE94;--olive:#B9CC63;--leaf:#6C7E26;--line:#39421D;--btn:#C8D68A;--btn-text:#1B2109;--deep:#2A3312;--deep-text:#EEF2D6}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Onest",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--olive)}
+:focus-visible{outline:3px solid var(--olive);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.brand{font:600 1.35rem "Lora",Georgia,serif;color:var(--olive);text-decoration:none}
+.nav-link{font-weight:500;text-decoration:none}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:24px 0 72px}
+h1{font:600 clamp(2.3rem,6vw,3.9rem)/1.08 "Lora",Georgia,serif;margin:0 0 20px;letter-spacing:-.01em}
+.lead{font-size:1.15rem;max-width:32em;margin:0 0 28px;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-block;background:var(--btn);color:var(--btn-text);font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px}
+.btn:hover{filter:brightness(1.12)}
+.ghost{font-weight:500}
+#rose{width:100%;max-width:400px;justify-self:center;overflow:visible}
+.petal{fill:var(--leaf);fill-opacity:.3;stroke:var(--olive);stroke-width:1.3;stroke-linejoin:round}
+@media (prefers-reduced-motion:no-preference){.petal{stroke-dasharray:1;animation:draw 2.6s ease both}.p1{animation-delay:.35s}.p2{animation-delay:.7s}.p3{animation-delay:1.05s}}
+@keyframes draw{0%{stroke-dashoffset:1;fill-opacity:0}70%{stroke-dashoffset:0;fill-opacity:0}100%{stroke-dashoffset:0;fill-opacity:.3}}
+section{padding:60px 0}
+h2{font:600 clamp(1.7rem,4vw,2.3rem)/1.15 "Lora",Georgia,serif;margin:0 0 26px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(130px,210px) 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row h3{margin:0;color:var(--olive);font-size:1.1rem}
+.row p{margin:0;max-width:40em}
+.formats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.fmt{padding:26px 24px;border-right:1px solid var(--line)}
+.fmt:last-child{border-right:0}
+.fmt h3{margin:0 0 8px;font:600 1.2rem "Lora",Georgia,serif;color:var(--olive)}
+.fmt p{margin:0;color:var(--muted)}
+.fmt p.price{margin:16px 0 0;color:var(--ink);font-weight:700}
+.about-box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px 28px;max-width:44em}
+.about-box p{margin:0 0 14px}
+.about-box p:last-child{margin:0}
+ol.steps{list-style:none;margin:0;padding:0;max-width:40em;counter-reset:s}
+ol.steps li{position:relative;counter-increment:s;padding:0 0 22px 52px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--leaf);color:var(--ink);display:grid;place-items:center;font-weight:700}
+ol.steps li::after{content:"";position:absolute;left:16px;top:38px;bottom:4px;width:2px;background:var(--line)}
+ol.steps li:last-child::after{display:none}
+ol.steps b{color:var(--olive)}
+details{border-bottom:1px solid var(--line);padding:15px 0;max-width:42em}
+summary{cursor:pointer;font-weight:500}
+details p{margin:10px 0 0;color:var(--muted)}
+.contact{background:var(--deep);color:var(--deep-text);border-radius:28px;padding:44px 32px;margin-bottom:40px}
+.contact h2{margin-bottom:16px}
+.contact ul{list-style:none;padding:0;margin:0 0 26px}
+.contact li{margin-bottom:6px}
+.contact a{color:var(--deep-text)}
+.contact .btn{background:var(--leaf);color:#26300B}
+footer{padding:0 0 28px;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:48px}#rose{max-width:260px;order:-1}.formats{grid-template-columns:1fr}.fmt{border-right:0;border-bottom:1px solid var(--line)}.fmt:last-child{border-bottom:0}.row{grid-template-columns:1fr;gap:4px}.contact{padding:32px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="brand" href="#">BrainBloom</a>
+  <a class="nav-link" href="#contact">Записатися</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Математика, яка розквітає разом з учнем</h1>
+    <p class="lead">Онлайн-уроки для учнів усіх віків: від першого класу до підготовки до НМТ. Індивідуально або в невеликій групі.</p>
+    <div class="btns">
+      <a class="btn" href="#contact">Записатися на пробний урок</a>
+      <a class="ghost" href="#formats">Формати навчання</a>
+    </div>
+  </div>
+  <svg id="rose" viewBox="-105 -105 210 210" role="img" aria-label="Квітка, намальована математичною кривою"></svg>
+</header>
+
+<main>
+<section>
+  <h2>Для кого ці уроки</h2>
+  <div class="rows">
+    <div class="row"><h3>1–4 класи</h3><p>Рахунок, прості задачі, логіка. Вчимося не боятися математики з перших уроків.</p></div>
+    <div class="row"><h3>5–9 класи</h3><p>Опора на шкільну програму: дроби, рівняння, геометрія. Заповнюємо прогалини й допомагаємо з домашніми завданнями.</p></div>
+    <div class="row"><h3>10–11 класи та НМТ</h3><p>Розбір типів завдань, пробні тести, робота над помилками.</p></div>
+    <div class="row"><h3>Дорослі</h3><p>Повторити математику з нуля або підтягнути її для вступу.</p></div>
+  </div>
+</section>
+
+<section id="formats">
+  <h2>Формати навчання</h2>
+  <div class="formats">
+    <div class="fmt"><h3>Індивідуально</h3><p>Урок лише з вами чи вашою дитиною. Темп і теми підлаштовуємо під учня. Для 1–10 класів.</p><p class="price">350 грн за заняття</p></div>
+    <div class="fmt"><h3>У малій групі</h3><p>Заняття з однолітками: більше живого обговорення й спільного розбору задач.</p><p class="price">200 грн за заняття</p></div>
+    <div class="fmt"><h3>Курс до НМТ</h3><p>Системна підготовка за темами з регулярними пробними тестами.</p><p class="price">400 грн за заняття</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Як почати</h2>
+  <ol class="steps">
+    <li><b>Пробний урок.</b> Знайомимося й перевіряємо, що учень уже вміє.</li>
+    <li><b>План навчання.</b> Обираємо формат, графік і цілі.</li>
+    <li><b>Регулярні уроки.</b> Після кожного заняття є домашнє завдання й зворотний зв'язок.</li>
+    <li><b>Перевірка прогресу.</b> Контрольні та пробні тести показують, що вже засвоєно.</li>
+  </ol>
+</section>
+
+<section id="about">
+  <h2>Про школу і про мене</h2>
+  <div class="about-box">
+    <p>Привіт! Я створюю BrainBloom, щоб математика перестала лякати й почала подобатися. Тут немає поспіху й зайвого тиску: ми розбираємо тему, доки вона не стане зрозумілою.</p>
+    <p>Мені важливо, щоб учень не просто отримав оцінку, а справді розумів, що робить і навіщо. Напишіть мені, і разом підберемо формат, який підійде саме вам.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Часті запитання</h2>
+  <details><summary>Де проходять уроки?</summary><p>Онлайн, у відеозв'язку з електронною дошкою. Потрібні лише інтернет і пристрій з екраном.</p></details>
+  <details><summary>Скільки триває урок?</summary><p>Тривалість залежить від віку та формату. Точний розклад узгоджуємо після пробного уроку.</p></details>
+  <details><summary>Скільки коштує навчання?</summary><p>Індивідуальне заняття для 1–10 класів коштує 350 грн, підготовка до НМТ — 400 грн, групове заняття — 200 грн.</p></details>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Запишіться на пробний урок</h2>
+  <ul>
+    <li>Telegram: <a href="https://t.me/lizwzw">@lizwzw</a></li>
+    <li>Пошта: <a href="mailto:glamazdaelizaveta8@gmail.com">glamazdaelizaveta8@gmail.com</a></li>
+    <li>Телефон: <a href="tel:+380937791504">093 779 15 04</a></li>
+  </ul>
+  <a class="btn" href="https://t.me/lizwzw">Написати в Telegram</a>
+</section>
+</main>
+
+<footer>© BrainBloom. Онлайн-школа математики.</footer>
+</div>
+
+<script>
+(function(){
+  var svg=document.getElementById('rose'),ns='http://www.w3.org/2000/svg';
+  [[100,0],[78,22.5],[56,0],[34,22.5]].forEach(function(v,i){
+    var d='';
+    for(var t=0;t<=360;t+=2){
+      var a=t*Math.PI/180,r=v[0]*Math.cos(4*a);
+      d+=(t?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1);
+    }
+    var p=document.createElementNS(ns,'path');
+    p.setAttribute('d',d+'Z');
+    p.setAttribute('pathLength','1');
+    p.setAttribute('transform','rotate('+v[1]+')');
+    p.setAttribute('class','petal p'+i);
+    svg.appendChild(p);
+  });
+  var c=document.createElementNS(ns,'circle');
+  c.setAttribute('r','3');c.setAttribute('fill','var(--olive)');
+  svg.appendChild(c);
+})();
+</script>
+</body>
+</html>
