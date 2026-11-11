@@ -3,166 +3,250 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BrainBloom — онлайн-школа математики</title>
+<title>BrainBloom — підготовка до НМТ з математики</title>
+<meta name="description" content="Безкоштовний тест рівня за 15 хвилин, план підготовки до НМТ і заняття з викладачем. Онлайн, індивідуально або в малій групі.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#EEF1DC;--panel:#F8FAEC;--ink:#2A3311;--muted:#596540;--olive:#5F6F1F;--leaf:#C8D68A;--line:#CBD3A6;--btn:#4A5A16;--btn-text:#F8FAEC;--deep:#3B4712;--deep-text:#F1F4DC;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181C0C;--panel:#20260F;--ink:#E9EED2;--muted:#B4BE94;--olive:#B9CC63;--leaf:#6C7E26;--line:#39421D;--btn:#C8D68A;--btn-text:#1B2109;--deep:#2A3312;--deep-text:#EEF2D6}}
-:root[data-theme="dark"]{--bg:#181C0C;--panel:#20260F;--ink:#E9EED2;--muted:#B4BE94;--olive:#B9CC63;--leaf:#6C7E26;--line:#39421D;--btn:#C8D68A;--btn-text:#1B2109;--deep:#2A3312;--deep-text:#EEF2D6}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Onest",system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:var(--olive)}
-:focus-visible{outline:3px solid var(--olive);outline-offset:3px}
-.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.brand{font:600 1.35rem "Lora",Georgia,serif;color:var(--olive);text-decoration:none}
-.nav-link{font-weight:500;text-decoration:none}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:24px 0 72px}
-h1{font:600 clamp(2.3rem,6vw,3.9rem)/1.08 "Lora",Georgia,serif;margin:0 0 20px;letter-spacing:-.01em}
-.lead{font-size:1.15rem;max-width:32em;margin:0 0 28px;color:var(--muted)}
-.btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.btn{display:inline-block;background:var(--btn);color:var(--btn-text);font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px}
-.btn:hover{filter:brightness(1.12)}
-.ghost{font-weight:500}
-#rose{width:100%;max-width:400px;justify-self:center;overflow:visible}
-.petal{fill:var(--leaf);fill-opacity:.3;stroke:var(--olive);stroke-width:1.3;stroke-linejoin:round}
-@media (prefers-reduced-motion:no-preference){.petal{stroke-dasharray:1;animation:draw 2.6s ease both}.p1{animation-delay:.35s}.p2{animation-delay:.7s}.p3{animation-delay:1.05s}}
-@keyframes draw{0%{stroke-dashoffset:1;fill-opacity:0}70%{stroke-dashoffset:0;fill-opacity:0}100%{stroke-dashoffset:0;fill-opacity:.3}}
-section{padding:60px 0}
-h2{font:600 clamp(1.7rem,4vw,2.3rem)/1.15 "Lora",Georgia,serif;margin:0 0 26px}
-.rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:minmax(130px,210px) 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.row h3{margin:0;color:var(--olive);font-size:1.1rem}
-.row p{margin:0;max-width:40em}
-.formats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
-.fmt{padding:26px 24px;border-right:1px solid var(--line)}
-.fmt:last-child{border-right:0}
-.fmt h3{margin:0 0 8px;font:600 1.2rem "Lora",Georgia,serif;color:var(--olive)}
-.fmt p{margin:0;color:var(--muted)}
-.fmt p.price{margin:16px 0 0;color:var(--ink);font-weight:700}
-.about-box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px 28px;max-width:44em}
-.about-box p{margin:0 0 14px}
-.about-box p:last-child{margin:0}
-ol.steps{list-style:none;margin:0;padding:0;max-width:40em;counter-reset:s}
-ol.steps li{position:relative;counter-increment:s;padding:0 0 22px 52px}
-ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--leaf);color:var(--ink);display:grid;place-items:center;font-weight:700}
-ol.steps li::after{content:"";position:absolute;left:16px;top:38px;bottom:4px;width:2px;background:var(--line)}
-ol.steps li:last-child::after{display:none}
-ol.steps b{color:var(--olive)}
-details{border-bottom:1px solid var(--line);padding:15px 0;max-width:42em}
-summary{cursor:pointer;font-weight:500}
-details p{margin:10px 0 0;color:var(--muted)}
-.contact{background:var(--deep);color:var(--deep-text);border-radius:28px;padding:44px 32px;margin-bottom:40px}
-.contact h2{margin-bottom:16px}
-.contact ul{list-style:none;padding:0;margin:0 0 26px}
-.contact li{margin-bottom:6px}
-.contact a{color:var(--deep-text)}
-.contact .btn{background:var(--leaf);color:#26300B}
-footer{padding:0 0 28px;color:var(--muted);font-size:.9rem}
-@media (max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:48px}#rose{max-width:260px;order:-1}.formats{grid-template-columns:1fr}.fmt{border-right:0;border-bottom:1px solid var(--line)}.fmt:last-child{border-bottom:0}.row{grid-template-columns:1fr;gap:4px}.contact{padding:32px 22px}}
+:root{--bg:#f3eee2;--card:#fbf8f0;--ink:#2b2f1e;--mute:#6b6d55;--pri:#5f6b2c;--pri-ink:#fff;--sun:#d9c28a;--line:#ded6c0;--ok:#4f7a2f;--bad:#b4533a}
+@media(prefers-color-scheme:dark){:root{--bg:#1e2017;--card:#282a1e;--ink:#efe9d6;--mute:#b3b196;--pri:#a9b660;--pri-ink:#1e2017;--sun:#8a7a4a;--line:#3b3e2c;--ok:#a3c46a;--bad:#e08a70}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,6.5vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+h3{font-size:1.1rem;font-weight:800}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none}
+.logo b{color:var(--pri)}
+.btn{display:inline-block;border:0;border-radius:12px;padding:13px 22px;font:800 1rem Manrope,system-ui,sans-serif;text-decoration:none;cursor:pointer;background:var(--pri);color:var(--pri-ink)}
+.btn.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.sm{padding:9px 16px;font-size:.9rem}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.opt:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.hero .w{display:grid;gap:36px;align-items:center}
+@media(min-width:800px){.hero .w{grid-template-columns:1.25fr 1fr}}
+.hero p.sub{font-size:1.15rem;color:var(--mute)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-weight:600}
+.checks li::before{content:"✓ ";color:var(--ok);font-weight:800}
+.sample{background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:22px;box-shadow:8px 8px 0 var(--sun);transform:rotate(1.5deg)}
+.sample small{color:var(--mute);font-weight:600}
+.sample .q{font-size:1.5rem;font-weight:800;margin:6px 0 14px}
+.sample span{display:inline-block;border:2px solid var(--line);border-radius:10px;padding:6px 16px;margin:0 8px 8px 0;font-weight:800}
+.sample span.r{border-color:var(--ok);background:var(--ok);color:var(--pri-ink)}
+.steps{display:grid;gap:16px;padding:0;list-style:none;counter-reset:s}
+@media(min-width:700px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{counter-increment:s;border-top:3px solid var(--pri);padding-top:12px}
+.steps li::before{content:counter(s);font-weight:800;font-size:1.6rem;color:var(--pri)}
+.steps b{display:block}
+.band{background:var(--card);border-block:1px solid var(--line)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;max-width:640px}
+label{display:block;font-weight:600;font-size:.95rem;margin:0 0 14px}
+input,select{display:block;width:100%;margin-top:6px;padding:12px 14px;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px}
+.bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--pri);transition:width .3s}
+.opt{display:block;width:100%;text-align:left;margin:0 0 10px;padding:13px 16px;font:600 1rem Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;cursor:pointer}
+.opt:hover{border-color:var(--pri)}
+.topic{color:var(--pri);font-weight:800;font-size:.9rem}
+.qt{font-size:1.3rem;font-weight:800;margin:4px 0 18px}
+.score{font-size:3rem;font-weight:800;line-height:1}
+.row{display:flex;justify-content:space-between;font-weight:600;margin-top:12px}
+.row+.bar{margin:4px 0 0}
+.row+.bar i{background:var(--ok)}
+.row.low+.bar i{background:var(--bad)}
+.prices{display:grid;gap:16px}
+@media(min-width:700px){.prices{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card.main{border:2px solid var(--pri)}
+.price{font-size:1.9rem;font-weight:800}
+.price small{font-size:.9rem;color:var(--mute);font-weight:600}
+.card p{color:var(--mute);font-size:.95rem}
+.two{display:grid;gap:24px}
+@media(min-width:700px){.two{grid-template-columns:1fr 1fr}}
+details{border-bottom:1px solid var(--line);padding:14px 0;max-width:700px}
+summary{font-weight:800;cursor:pointer}
+details p{margin:10px 0 0;color:var(--mute)}
+.hide{display:none}
+.note{font-size:.85rem;color:var(--mute)}
+footer{padding:30px 0 40px;border-top:1px solid var(--line);font-size:.9rem;color:var(--mute)}
+footer a{margin-right:16px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<nav>
-  <a class="brand" href="#">BrainBloom</a>
-  <a class="nav-link" href="#contact">Записатися</a>
-</nav>
+<header><div class="w"><a class="logo" href="#">Brain<b>Bloom</b></a><a class="btn sm" href="#test">Пройти тест</a></div></header>
 
-<header class="hero">
-  <div>
-    <h1>Математика, яка розквітає разом з учнем</h1>
-    <p class="lead">Онлайн-уроки для учнів усіх віків: від першого класу до підготовки до НМТ. Індивідуально або в невеликій групі.</p>
-    <div class="btns">
-      <a class="btn" href="#contact">Записатися на пробний урок</a>
-      <a class="ghost" href="#formats">Формати навчання</a>
-    </div>
-  </div>
-  <svg id="rose" viewBox="-105 -105 210 210" role="img" aria-label="Квітка, намальована математичною кривою"></svg>
-</header>
-
-<main>
-<section>
-  <h2>Для кого ці уроки</h2>
-  <div class="rows">
-    <div class="row"><h3>1–4 класи</h3><p>Рахунок, прості задачі, логіка. Вчимося не боятися математики з перших уроків.</p></div>
-    <div class="row"><h3>5–9 класи</h3><p>Опора на шкільну програму: дроби, рівняння, геометрія. Заповнюємо прогалини й допомагаємо з домашніми завданнями.</p></div>
-    <div class="row"><h3>10–11 класи та НМТ</h3><p>Розбір типів завдань, пробні тести, робота над помилками.</p></div>
-    <div class="row"><h3>Дорослі</h3><p>Повторити математику з нуля або підтягнути її для вступу.</p></div>
-  </div>
-</section>
-
-<section id="formats">
-  <h2>Формати навчання</h2>
-  <div class="formats">
-    <div class="fmt"><h3>Індивідуально</h3><p>Урок лише з вами чи вашою дитиною. Темп і теми підлаштовуємо під учня. Для 1–10 класів.</p><p class="price">350 грн за заняття</p></div>
-    <div class="fmt"><h3>У малій групі</h3><p>Заняття з однолітками: більше живого обговорення й спільного розбору задач.</p><p class="price">200 грн за заняття</p></div>
-    <div class="fmt"><h3>Курс до НМТ</h3><p>Системна підготовка за темами з регулярними пробними тестами.</p><p class="price">400 грн за заняття</p></div>
-  </div>
-</section>
-
-<section>
-  <h2>Як почати</h2>
-  <ol class="steps">
-    <li><b>Пробний урок.</b> Знайомимося й перевіряємо, що учень уже вміє.</li>
-    <li><b>План навчання.</b> Обираємо формат, графік і цілі.</li>
-    <li><b>Регулярні уроки.</b> Після кожного заняття є домашнє завдання й зворотний зв'язок.</li>
-    <li><b>Перевірка прогресу.</b> Контрольні та пробні тести показують, що вже засвоєно.</li>
-  </ol>
-</section>
-
-<section id="about">
-  <h2>Про школу і про мене</h2>
-  <div class="about-box">
-    <p>Привіт! Я створюю BrainBloom, щоб математика перестала лякати й почала подобатися. Тут немає поспіху й зайвого тиску: ми розбираємо тему, доки вона не стане зрозумілою.</p>
-    <p>Мені важливо, щоб учень не просто отримав оцінку, а справді розумів, що робить і навіщо. Напишіть мені, і разом підберемо формат, який підійде саме вам.</p>
-  </div>
-</section>
-
-<section>
-  <h2>Часті запитання</h2>
-  <details><summary>Де проходять уроки?</summary><p>Онлайн, у відеозв'язку з електронною дошкою. Потрібні лише інтернет і пристрій з екраном.</p></details>
-  <details><summary>Скільки триває урок?</summary><p>Тривалість залежить від віку та формату. Точний розклад узгоджуємо після пробного уроку.</p></details>
-  <details><summary>Скільки коштує навчання?</summary><p>Індивідуальне заняття для 1–10 класів коштує 350 грн, підготовка до НМТ — 400 грн, групове заняття — 200 грн.</p></details>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Запишіться на пробний урок</h2>
-  <ul>
-    <li>Telegram: <a href="https://t.me/lizwzw">@lizwzw</a></li>
-    <li>Пошта: <a href="mailto:glamazdaelizaveta8@gmail.com">glamazdaelizaveta8@gmail.com</a></li>
-    <li>Телефон: <a href="tel:+380937791504">093 779 15 04</a></li>
-  </ul>
-  <a class="btn" href="https://t.me/lizwzw">Написати в Telegram</a>
-</section>
-</main>
-
-<footer>© BrainBloom. Онлайн-школа математики.</footer>
+<section class="hero"><div class="w">
+<div>
+<h1>Підготовка до НМТ з математики без хаосу й стресу</h1>
+<p class="sub">Дізнайся свій рівень за 15 хвилин, отримай чіткий план і закрий слабкі теми на заняттях. Онлайн, індивідуально або в малій групі.</p>
+<div class="cta"><a class="btn" href="#test">Пройти безкоштовний тест</a><a class="btn alt" href="#contact">Записатися на пробний урок</a></div>
+<ul class="checks"><li>Діагностика показує, які теми просідають</li><li>Пробні тести у форматі НМТ і розбір кожної помилки</li><li>Зворотний зв’язок після кожного заняття</li></ul>
 </div>
+<div class="sample" aria-hidden="true"><small>Приклад із тесту</small><div class="q">15% від 240 = ?</div><span>24</span><span>32</span><span class="r">36</span><span>40</span></div>
+</div></section>
+
+<section class="band"><div class="w">
+<h2>Як це працює</h2>
+<ol class="steps">
+<li><b>Тест</b>Безкоштовно бачиш свій рівень і слабкі теми</li>
+<li><b>План</b>Складаємо підготовку під твою мету в балах</li>
+<li><b>Заняття</b>Розбираємо теми й закріплюємо домашніми завданнями</li>
+<li><b>Пробні НМТ</b>Пишеш тести й відстежуєш прогрес</li>
+</ol>
+</div></section>
+
+<section id="test"><div class="w">
+<h2>Безкоштовний тест рівня</h2>
+<p>15 завдань базового рівня НМТ, близько 15 хвилин, без калькулятора. У результаті побачиш бали за кожною темою.</p>
+<div class="box" id="tbox">
+<form id="start">
+<label>Ім’я<input name="name" required autocomplete="given-name"></label>
+<label>Клас<select name="cls" required><option value="">Обери клас</option><option>9 клас</option><option>10 клас</option><option>11 клас</option><option>Випускник минулих років</option><option>Дорослий</option></select></label>
+<label>Telegram або телефон<input name="contact" required autocomplete="tel" placeholder="@нік або 093…"></label>
+<button class="btn" type="submit">Почати тест</button>
+<p class="note" style="margin:12px 0 0">Контакт потрібен, щоб надіслати розбір результату й план підготовки.</p>
+</form>
+</div>
+</div></section>
+
+<section class="band" id="formats"><div class="w">
+<h2>Формати навчання</h2>
+<div class="prices">
+<div class="card"><h3>Індивідуально</h3><div class="price">350 грн <small>за заняття</small></div><p>Урок лише з тобою. Темп і теми підлаштовуємо під учня. Для 1–10 класів.</p></div>
+<div class="card"><h3>У малій групі</h3><div class="price">200 грн <small>за заняття</small></div><p>Заняття з однолітками: більше живого обговорення й спільного розбору задач.</p></div>
+<div class="card main"><h3>Курс до НМТ</h3><div class="price">400 грн <small>за заняття</small></div><p>Системна підготовка за темами з регулярними пробними тестами.</p></div>
+</div>
+<p class="note" style="margin-top:16px">Тривалість заняття, розклад і кількість уроків узгоджуємо після пробного уроку.</p>
+</div></section>
+
+<section><div class="w two">
+<div><h2>Про школу</h2><p>BrainBloom — онлайн-школа математики. Ми допомагаємо розібратися в темі, а не просто отримати оцінку: пояснюємо, доки не стане зрозуміло, і перевіряємо прогрес тестами. Без поспіху й тиску.</p></div>
+<div><h2>Наш підхід</h2><ul class="checks"><li>Діагностика на старті</li><li>План під мету в балах</li><li>Зворотний зв’язок після кожного уроку</li><li>Пробні тести у форматі НМТ</li></ul></div>
+</div></section>
+
+<section class="band"><div class="w">
+<h2>Інші напрямки</h2>
+<p>Також навчаємо учнів 1–4 і 5–9 класів та дорослих: шкільна програма, прогалини, повторення з нуля. Залиш заявку, і ми підберемо формат.</p>
+<a class="btn alt" href="#contact">Залишити заявку</a>
+</div></section>
+
+<section><div class="w">
+<h2>Часті запитання</h2>
+<details><summary>Де проходять уроки?</summary><p>Онлайн, у відеозв’язку з електронною дошкою. Потрібні лише інтернет і пристрій з екраном.</p></details>
+<details><summary>Скільки триває урок?</summary><p>Залежить від віку та формату. Точний розклад узгоджуємо після пробного уроку.</p></details>
+<details><summary>Скільки коштує навчання?</summary><p>Індивідуальне заняття: 350 грн, групове: 200 грн, підготовка до НМТ: 400 грн.</p></details>
+<details><summary>Що буде на пробному уроці?</summary><p>Познайомимося, перевіримо, що учень уже вміє, і складемо план навчання.</p></details>
+</div></section>
+
+<section class="band" id="contact"><div class="w">
+<h2>Запишіться на пробний урок</h2>
+<div class="box">
+<form id="lead">
+<label>Ім’я<input name="name" required></label>
+<label>Клас учня<select name="cls" required><option value="">Обери клас</option><option>1–4 клас</option><option>5–9 клас</option><option>10–11 клас, НМТ</option><option>Дорослий</option></select></label>
+<label>Telegram або телефон<input name="contact" required placeholder="@нік або 093…"></label>
+<button class="btn" type="submit">Отримати консультацію</button>
+<p class="note" id="lmsg" style="margin:12px 0 0"></p>
+</form>
+</div>
+<p style="margin-top:24px">Або напиши напряму: <a href="https://t.me/lizwzw">Telegram @lizwzw</a> · <a href="mailto:glamazdaelizaveta8@gmail.com">glamazdaelizaveta8@gmail.com</a> · <a href="tel:+380937791504">093 779 15 04</a></p>
+</div></section>
+
+<footer><div class="w"><a href="#">Публічна оферта</a><a href="#">Політика конфіденційності</a><p style="margin-top:12px">© BrainBloom. Онлайн-школа математики.</p></div></footer>
 
 <script>
-(function(){
-  var svg=document.getElementById('rose'),ns='http://www.w3.org/2000/svg';
-  [[100,0],[78,22.5],[56,0],[34,22.5]].forEach(function(v,i){
-    var d='';
-    for(var t=0;t<=360;t+=2){
-      var a=t*Math.PI/180,r=v[0]*Math.cos(4*a);
-      d+=(t?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1);
-    }
-    var p=document.createElementNS(ns,'path');
-    p.setAttribute('d',d+'Z');
-    p.setAttribute('pathLength','1');
-    p.setAttribute('transform','rotate('+v[1]+')');
-    p.setAttribute('class','petal p'+i);
-    svg.appendChild(p);
+// Якщо підключиш Formspree, встав сюди адресу вигляду https://formspree.io/f/xxxx — заявки та результати тестів надходитимуть на пошту.
+var FORM_URL="https://formspree.io/f/mnpdqznq";
+var TG="lizwzw";
+function send(data,text){
+  if(FORM_URL){
+    return fetch(FORM_URL,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  window.open("https://t.me/"+TG+"?text="+encodeURIComponent(text),"_blank");
+  return Promise.resolve(false);
+}
+var Q=[
+["Відсотки","Знайдіть 15% від 240.",["24","32","36","40"],2],
+["Відсотки","Куртка коштувала 1200 грн, знижка 25%. Яка нова ціна?",["300 грн","900 грн","950 грн","1500 грн"],1],
+["Відсотки","Товар подорожчав з 400 до 500 грн. На скільки відсотків?",["20%","10%","100%","25%"],3],
+["Рівняння","Розв’яжіть рівняння 3x − 7 = 11.",["4","6","18","3"],1],
+["Рівняння","Корені рівняння x² − 5x + 6 = 0:",["1 і 6","−2 і −3","2 і 3","−1 і −6"],2],
+["Рівняння","Розв’яжіть нерівність 2x + 3 > 9.",["x < 3","x > 12","x > 6","x > 3"],3],
+["Функції","f(x) = 2x − 5. Знайдіть f(4).",["3","13","−3","8"],0],
+["Функції","Область визначення функції y = √(x − 2):",["x ≤ 2","x > 2","x ≥ 2","x ≥ −2"],2],
+["Геометрія","Катети прямокутного трикутника 6 і 8. Знайдіть гіпотенузу.",["14","12","10","7"],2],
+["Геометрія","Периметр квадрата 20 см. Яка його площа?",["20 см²","25 см²","100 см²","16 см²"],1],
+["Геометрія","Радіус кола дорівнює 3. Яка довжина кола?",["3π","6π","9π","12π"],1],
+["Прогресії","Арифметична прогресія: a₁ = 2, d = 3. Знайдіть a₅.",["11","15","17","14"],3],
+["Прогресії","Геометрична прогресія: b₁ = 3, q = 2. Знайдіть b₄.",["12","24","48","18"],1],
+["Текстові задачі","Сума двох чисел 30, одне більше за інше на 6. Знайдіть менше число.",["18","10","14","12"],3],
+["Текстові задачі","Авто їхало 3 год зі швидкістю 60 км/год, потім 2 год зі швидкістю 90 км/год. Яка середня швидкість?",["75 км/год","72 км/год","70 км/год","80 км/год"],1]
+];
+var box=document.getElementById("tbox"),user={},i=0,score=0,by={};
+document.getElementById("start").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=new FormData(e.target);
+  user={name:f.get("name"),cls:f.get("cls"),contact:f.get("contact")};
+  i=0;score=0;by={};show();
+});
+function show(){
+  var q=Q[i];
+  box.innerHTML='<div class="bar"><i style="width:'+(i/Q.length*100)+'%"></i></div><div class="topic">'+q[0]+' · '+(i+1)+'/'+Q.length+'</div><div class="qt"></div><div id="o"></div>';
+  box.querySelector(".qt").textContent=q[1];
+  q[2].forEach(function(t,k){
+    var b=document.createElement("button");
+    b.type="button";b.className="opt";b.textContent="АБВГ".charAt(k)+") "+t;
+    b.onclick=function(){pick(k)};
+    box.querySelector("#o").appendChild(b);
   });
-  var c=document.createElementNS(ns,'circle');
-  c.setAttribute('r','3');c.setAttribute('fill','var(--olive)');
-  svg.appendChild(c);
-})();
+}
+function pick(k){
+  var q=Q[i];
+  by[q[0]]=by[q[0]]||[0,0];by[q[0]][1]++;
+  if(k===q[3]){score++;by[q[0]][0]++}
+  i++;
+  if(i<Q.length)show();else finish();
+}
+function finish(){
+  var lvl,msg;
+  if(score>=13){lvl="Високий рівень";msg="Основа в тебе сильна. Наступний крок: складніші завдання й пробні НМТ на швидкість."}
+  else if(score>=9){lvl="Середній рівень";msg="Є прогалини, які можна закрити за кілька тижнів. Пропонуємо пробний урок і план підготовки."}
+  else{lvl="Потрібна база";msg="Почнемо з основ і рухатимемось крок за кроком. Індивідуальні заняття допоможуть найшвидше."}
+  var h='<div class="topic">Твій результат</div><div class="score">'+score+' / '+Q.length+'</div><h3 style="margin-top:8px">'+lvl+'</h3><p>'+msg+'</p>';
+  Object.keys(by).forEach(function(t){
+    var r=by[t],low=r[0]/r[1]<.5;
+    h+='<div class="row'+(low?' low':'')+'"><span>'+t+'</span><span>'+r[0]+'/'+r[1]+'</span></div><div class="bar"><i style="width:'+(r[0]/r[1]*100)+'%"></i></div>';
+  });
+  h+='<p id="rp" style="margin-top:20px">Розбір відповідей і план підготовки надішлемо на твій контакт. Натисни кнопку, щоб надіслати результат.</p><button class="btn" id="res" type="button">Отримати план підготовки</button><p class="note" id="rmsg" style="margin-top:12px"></p>';
+  box.innerHTML=h;
+  var topics=Object.keys(by).map(function(t){return t+" "+by[t][0]+"/"+by[t][1]}).join(", ");
+  document.getElementById("res").onclick=function(){
+    var text="Привіт! Я "+user.name+" ("+user.cls+"). Пройшов(-ла) тест на BrainBloom: "+score+"/15. Теми: "+topics+". Мій контакт: "+user.contact+". Хочу отримати план підготовки до НМТ.";
+    send({type:"test",name:user.name,cls:user.cls,contact:user.contact,score:score,topics:topics},text).then(function(ok){
+      document.getElementById("rmsg").textContent=ok?"Дякуємо! Ми зв’яжемося з тобою найближчим часом.":"Відкрилось повідомлення в Telegram. Надішли його, і ми відповімо.";
+    });
+  };
+  if(FORM_URL){
+    send({type:"test",name:user.name,cls:user.cls,contact:user.contact,score:score,topics:topics},"");
+    document.getElementById("rp").textContent="Результат уже надіслано нам. Ми зв’яжемося з тобою найближчим часом із розбором і планом підготовки.";
+    document.getElementById("res").style.display="none";
+  }
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.getElementById("lead").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=new FormData(e.target),d={type:"lead",name:f.get("name"),cls:f.get("cls"),contact:f.get("contact")};
+  var text="Привіт! Я "+d.name+" ("+d.cls+"). Хочу записатися на пробний урок. Мій контакт: "+d.contact+".";
+  send(d,text).then(function(ok){
+    document.getElementById("lmsg").textContent=ok?"Дякуємо! Ми зв’яжемося з тобою найближчим часом.":"Відкрилось повідомлення в Telegram. Надішли його, і ми відповімо.";
+  });
+});
 </script>
 </body>
 </html>
